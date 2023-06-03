@@ -139,6 +139,7 @@ if menu == "Dashboard":
         # Tittle
         st.title("Data Padi 2018 - 2022")
         # Table
+        dt = dt[dt['Tahun']==tahun_filter]
         datatable = dt[['Provinsi', 'Produksi', 'Luas Panen', 'Produktivitas']]
         datatable = dt.groupby(['Provinsi'])['Produksi', 'Luas Panen', 'Produktivitas'].agg('sum').reset_index()
         st.table(datatable)# will display the table
