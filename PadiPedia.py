@@ -290,7 +290,6 @@ if menu == 'Clustering':
 
         # --- Combining Both Data Frame ---
         df_profile = df_cluster_summary.join(df_profile_overall).reset_index()
-        df_profile.style.background_gradient(cmap='YlOrBr').hide_index()
         st.write(df_profile)
 
         # Hasil Cluster
