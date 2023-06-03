@@ -276,7 +276,7 @@ if menu == 'Clustering':
                                 'Silhouette Score': [ss_kmeans],
                                 'Calinski-Harabasz Index': [ch_kmeans]})
         st.subheader('Model Accuracy Evaluation')
-        st.write(compare.sort_values(by='Model', ascending=False).style.background_gradient(cmap='inferno_r').hide_index())#.set_properties(**{'font-family': 'Segoe UI'}))
+        st.write(compare.sort_values(by='Model', ascending=False).style.background_gradient(cmap='inferno_r').hide_index())
 
         #Cluster Profiling
         st.subheader('Cluster Profiling')
