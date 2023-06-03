@@ -15,8 +15,8 @@ import pickle
 
 
 # Load Data
-df = pd.read_excel(r'C:\Users\Sri Handini\Documents\kuliah\Project\PadiPedia\dataclusters2.xlsx')
-dt = pd.read_excel(r'C:\Users\Sri Handini\Documents\kuliah\Project\PadiPedia\dataclusters2.xlsx')
+df = pd.read_excel(r'dataclusters2.xlsx')
+dt = pd.read_excel(r'dataclusters2.xlsx')
 
 # Layout 
 st.set_page_config(
@@ -79,7 +79,7 @@ if menu == "Dashboard":
             map = folium.Map(location=[-0.789275, 113.921327], zoom_start=4, scrollWheelZoom=False, tiles='CartoDB positron')
             
             choropleth = folium.Choropleth(
-                geo_data= r'C:\Users\Sri Handini\Documents\kuliah\Project\PadiPedia\indonesia-prov.geojson',
+                geo_data= r'indonesia-prov.geojson',
                 data=dt,
                 columns=('Provinsi', 'clusters'),
                 key_on='feature.properties.Propinsi',
@@ -144,7 +144,7 @@ if menu == "Dashboard":
         st.table(datatable)# will display the table
 
 if menu == 'Clustering':
-    dp = pd.read_excel(r'C:\Users\Sri Handini\Documents\kuliah\Project\PadiPedia\datapadi.xlsx')
+    dp = pd.read_excel(r'datapadi.xlsx')
     st.title('Klustering Potensi Padi Provinsi')
     
     # Pilihan metode
