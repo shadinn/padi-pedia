@@ -213,9 +213,6 @@ if menu == 'Clustering':
         kmeans = KMeans(n_clusters=3, random_state=32, max_iter=500)
         y_kmeans = kmeans.fit_predict(X)
     
-        # --- Define K-Means Visualizer & Plots ---
-        #def visualizer(kmeans, y_kmeans):
-    
         # --- Figures Settings ---
         cluster_colors=['#FFBB00', '#3C096C', '#9D4EDD']
         labels = ['Cluster 1', 'Cluster 2', 'Cluster 3', 'Centroids']
@@ -256,7 +253,6 @@ if menu == 'Clustering':
         ax2.spines['bottom'].set_color('#CAC9CD')
 
         # --- Suptitle & WM ---
-        #plt.suptitle('Provitas Padi Clustering using K-Means\n', fontsize=14, **text_style)
         st.subheader('Hasil Clustering')
         plt.tight_layout()
         plt.show()
@@ -276,7 +272,7 @@ if menu == 'Clustering':
                                 'Silhouette Score': [ss_kmeans],
                                 'Calinski-Harabasz Index': [ch_kmeans]})
         st.subheader('Model Accuracy Evaluation')
-        st.write(compare.sort_values(by='Model', ascending=False).style.background_gradient(cmap='inferno_r').hide_index())
+        st.write(compare)
 
         #Cluster Profiling
         st.subheader('Cluster Profiling')
