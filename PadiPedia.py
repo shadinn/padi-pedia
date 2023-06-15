@@ -37,25 +37,17 @@ if menu == "Dashboard":
         # maindashboard title
         st.title("Dashboard Potensi Padi Nasional 2018 - 2022")
 
-        # top-level filters 
-        filter1,filter2 = st.columns(2)
-        with filter1:
-            provinsi_filter = st.selectbox("Provinsi", pd.unique(df['Provinsi']))
-        with filter2:
-            tahun_filter = st.selectbox("Tahun", pd.unique(dt['Tahun']))
+        # filter
+        tahun_filter = st.selectbox("Tahun", pd.unique(dt['Tahun']))
+        dt = dt[dt['Tahun']==tahun_filter]
 
         # creating a single-element container.
         placeholder = st.empty()
 
-        # dataframe filter 
-        #df = df[df['Provinsi']==provinsi_filter]
-        #dt = dt[dt['Tahun']==tahun_filter]
-
         # KPIs 
-        df = df[df['Provinsi']==provinsi_filter]
-        produksi = np.sum(df['Produksi'])     
-        luaspanen = np.sum(df['Luas Panen'])
-        produktivitas = np.sum(df['Produktivitas'])
+        produksi = np.sum(dt['Produksi'])     
+        luaspanen = np.sum(dt['Luas Panen'])
+        produktivitas = np.sum(dt['Produktivitas'])
 
         with placeholder.container():
             # create three columns
@@ -70,7 +62,6 @@ if menu == "Dashboard":
         with kolom_bar:
         
             # Bar Chart\
-            df = df[df['Provinsi']==provinsi_filter]
             fig = px.bar(df, x="Tahun", y=["Produksi","Luas Panen","Produktivitas"], barmode="group", width= 525, height=400)
             st.plotly_chart(fig)
         
@@ -152,8 +143,22 @@ if menu == 'Clustering':
     tab1, tab2 = st.tabs(["K-Means","Analisis"])
 
     with tab1:
+        # dataframe filter 
+        tahun_filter = st.selectbox("Tahun", pd.unique(dp['Tahun']))
+        dp = dp[dp['Tahun']==tahun_filter]
 
-        #scaling dataset
+        if tahun_filter == '2018':
+            dp = dp[dp['Tahun']==2018]
+        if tahun_filter == '2019':
+            dp = dp[dp['Tahun']==2019]
+        if tahun_filter == '2020':
+            dp = dp[dp['Tahun']==2020]
+        if tahun_filter == '2021':
+            dp = dp[dp['Tahun']==2021]
+        if tahun_filter == '2022':
+            dp = dp[dp['Tahun']==2022]
+       
+    #scaling dataset
         df_cluster = dp[['Produksi', 'Luas Panen', 'Produktivitas']]
         X = pd.DataFrame(StandardScaler().fit_transform(df_cluster))
 
