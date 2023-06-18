@@ -154,6 +154,12 @@ if menu == "Dashboard":
             data = data.reset_index()
             clusters = data['clusters'].tolist()
             
+            # filters 
+            kluster_filter = st.selectbox("Kluster", pd.unique(data['clusters']))
+
+             # dataframe filter 
+            data = data[data['clusters']==kluster_filter]
+            
             # Create a trace for each cluster
             data_traces = []
             for cluster in clusters:
@@ -171,7 +177,7 @@ if menu == "Dashboard":
                 polar=dict(
                     radialaxis=dict(visible=True)
                 ),
-                showlegend=True
+                showlegend=False
             )
 
             # Create the figure with multiple traces
