@@ -10,3 +10,4 @@ openpyxl
 streamlit_folium
 json
 pickle
+scipy
