@@ -8,5 +8,4 @@ plotly
 folium
 openpyxl
 streamlit_folium
-pickle
 scipy
