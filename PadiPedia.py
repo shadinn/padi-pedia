@@ -187,8 +187,7 @@ if menu == "Dashboard":
         st.title("Data Padi 2018 - 2022")
         # Table
         datatable = dt[['Provinsi', 'Produksi', 'Luas Panen', 'Produktivitas']]
-        datatable = dt.groupby(['Provinsi'])['Produksi', 'Luas Panen', 'Produktivitas'].agg('sum')
-        st.table(datatable)# will display the table
+        st.table(datatable)
 
 if menu == 'Clustering':
     dp = pd.read_excel(r'datapadi.xlsx')
