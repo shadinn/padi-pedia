@@ -8,3 +8,5 @@ plotly
 folium
 openpyxl
 streamlit_folium
+json
+pickle
