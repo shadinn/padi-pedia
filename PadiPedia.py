@@ -185,7 +185,7 @@ if menu == "Dashboard":
 
             # Display the radar chart
             st.plotly_chart(fig)
-        st.markdown('<iframe src='https://flo.uri.sh/visualisation/14251593/embed' width="800px" height="400px" frameborder="0" scrolling="no"></iframe>', unsafe_allow_html=True)
+        st.markdown('<iframe src="https://flo.uri.sh/visualisation/14251593/embed" width="800px" height="400px" frameborder="0" scrolling="no"></iframe>', unsafe_allow_html=True)
         
       
     with tab2 :
