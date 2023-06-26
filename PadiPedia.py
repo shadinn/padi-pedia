@@ -185,11 +185,9 @@ if menu == "Dashboard":
 
             # Display the radar chart
             st.plotly_chart(fig)
-
-        with hasil :
-            if kluster_filter == '1':
-                st.caption('Cluster 1 merupakan kelompok provinsi dengan kategori rendah. Karakteristik dari cluster 1 ini mempunyai jumlah produksi, luas panen dan tingkat produktivitas rendah jika dibandingkan dengan cluster 1,2,3, dan 5. Namun, jika dibandingkan dengan cluster 4 tingkat produktivitas cluster 1 jauh dibawah cluster 4, padahal dalam hal produksi dan luas panen lebih unggul cluster 1. Salah satu faktor rendahnya potensi padi di cluster ini karena sedikitnya daerah produksi padi di provinsi. Provinsi yang tergabung di cluster 1 cenderung berfokus pada pengembangan komoditas lain, seperti sagu. Selain itu, terdapat juga faktor SDM petani yang ada di provinsi cluster 1 beralih menjadi penambang dibanding menggarap lahan pertanian')
-
+        st.markdown('<iframe src='https://flo.uri.sh/visualisation/14251593/embed' width="800px" height="400px" frameborder="0" scrolling="no"></iframe>', unsafe_allow_html=True)
+        
+      
     with tab2 :
         # Tittle
         st.title("Data Padi 2018 - 2022")
